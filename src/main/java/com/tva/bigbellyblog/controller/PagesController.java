@@ -18,15 +18,15 @@ public class PagesController {
     return "index";
   }
 
-  @RequestMapping(value = "page1", method = RequestMethod.GET)
-  public String getPage1Page() {
-    logger.info("loading page1 page");
-    return "page1";
+  @RequestMapping(value = "post", method = RequestMethod.GET)
+  public String getPostPage() {
+    logger.info("loading post page");
+    return "post";
   }
 
-  @RequestMapping(value = "page2", method = RequestMethod.GET)
-  public String getPage2Page() {
-    logger.info("loading page2 page");
-    return "page2";
+  @RequestMapping(value = "donation", method = RequestMethod.GET)
+  public String getDonationPage() {
+    logger.info("loading donation page");
+    return "donation";
   }
 }

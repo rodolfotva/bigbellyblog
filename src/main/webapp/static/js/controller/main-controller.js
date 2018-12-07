@@ -1,14 +1,14 @@
 angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', 'mainService', function($scope, mainService) {
-	$scope.data = {};
-	$scope.menu = 'page1';
+	$scope.posts = {};
+	$scope.menu = 'post';
 
-    $scope.fetchAllData = function(){
-    	mainService.fetchAllData().then(
+    $scope.fetchHomePost = function(){
+    	mainService.fetchHomePost().then(
             function(response) {
-            	$scope.data = response.data;
+            	$scope.posts = response.data;
             },
             function(errResponse){
-                console.log('Error while fetching Headers');
+                console.log('Error while fetching Posts');
             }
         );
     }

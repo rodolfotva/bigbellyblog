@@ -1,21 +1,21 @@
 angular.module('main').factory('mainService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_DATA_URI = '/header/';
+    var REST_SERVICE_POST_URI = 'http://localhost:8082/bigbellyblog/post/';
  
     var factory = {
-   		fetchAllData:fetchAllData
+    	fetchHomePost:fetchHomePost
     };
  
     return factory;
  
-    function fetchAllData() {
+    function fetchHomePost() {
     	var deferred = $q.defer();
-        $http.get(REST_SERVICE_DATA_URI).then(
+        $http.get(REST_SERVICE_POST_URI).then(
             function (response) {
                 deferred.resolve(response);
             },
             function(errResponse){
-                console.log('Error while fetching Data');
+                console.log('Error while fetching post');
                 console.log(errResponse);
                 deferred.reject(errResponse);
             }

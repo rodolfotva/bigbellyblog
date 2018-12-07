@@ -1,16 +1,16 @@
-angular.module('main').directive('page1Page', function () {
+angular.module('main').directive('postPage', function () {
 	return {
-        templateUrl: 'page1',
+        templateUrl: 'post',
 		restrict: 'AE',
 		controller: 'mainController',
 		link: function($scope, $element, $attrs, ctrl){
-			$scope.fetchAllData();
+			$scope.fetchHomePost();
 		}
     };
 });
 
-angular.module('main').directive('page2Page', function () {
+angular.module('main').directive('donationPage', function () {
     return {
-        templateUrl: 'page2'
+        templateUrl: 'donation'
     };
 });

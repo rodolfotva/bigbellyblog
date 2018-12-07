@@ -44,8 +44,8 @@
 					</div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li ng-class="{active : menu == 'page1'}"><a href="#" ng-click="menuChange('page1')"><spring:message code="page1.title" /></a></li>
-							<li ng-class="{active : menu == 'page2'}"><a href="#" ng-click="menuChange('page2')"><spring:message code="page2.title" /></a></li>
+							<li ng-class="{active : menu == 'post'}"><a href="#" ng-click="menuChange('post')"><spring:message code="page1.title" /></a></li>
+							<li ng-class="{active : menu == 'donation'}"><a href="#" ng-click="menuChange('donation')"><spring:message code="page2.title" /></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 			              <li><a href="/en/" title="English"><img src="https://raw.githubusercontent.com/rodolfotva/cdn/master/images/usa.png" height="16" width="16" /></a></li>
@@ -58,8 +58,8 @@
 			
 			<div class="container_main container" >
 				<div ng-switch="menu">
-					<div ng-switch-when="page1" page1-page></div>
-					<div ng-switch-when="page2" page2-page></div>
+					<div ng-switch-when="post" post-page></div>
+					<div ng-switch-when="donation" donation-page></div>
 				</div>
 			</div>
 

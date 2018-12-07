@@ -39,7 +39,7 @@ public class ApplicationConfig {
         .maxConnectionIdleTime(6000).sslEnabled(true).build();
 
     MongoClient mongoClient = new MongoClient(saList, credential, options);
-    return new SimpleMongoDbFactory(mongoClient, "archetype");
+    return new SimpleMongoDbFactory(mongoClient, "bigbellyblog");
   }
 
   @Bean
