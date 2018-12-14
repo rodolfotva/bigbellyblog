@@ -1,43 +1,42 @@
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1030px !important;
+  }
+}
+
+.container_main {
+	padding-bottom: 100px;
+}
+
 body {
 	padding-top: 50px;
 }
+
 .starter-template {
 	padding: 40px 15px;
 	text-align: center
 }
-.chapterNumber {
-	padding-left:20px;
-	font-size:40px
-}
-.chapterTitle {
-	color:#00B700;
-	font-size:20px;
-	cursor: pointer
-}
-.bread {
-	padding-bottom: 20px
-}
-.breadStep {
-	color:#00B700;
-	cursor: pointer
-}	
-.chapter-row {
-	height: 110px
-}
 
-.group-row {
-	height: 110px
-}
 .footer {
 	padding-top: 6px;
 	position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: #f0f0f0;
-   color: black;
-   text-align: center;
-   height: 35px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #f0f0f0;
+	color: black;
+	text-align: center;
+	height: 35px;
 }
 
 .container_main {
@@ -46,8 +45,77 @@ body {
 
 .donateBtn {
 	padding-top: 50px;
-}	
-
+}
+	
 .search-filter {
    font-weight: bold;
 }
+
+.rate-checked {
+  color: orange;
+}
+
+.post-title {
+	font-size: 36px;
+	font-family: oswald,sans-serif;
+}
+
+.post-content {
+	padding-top: 15px;	
+	font-family: 'pt serif',serif;
+    font-size: 20px;
+}
+
+.pics-group {
+	padding-top: 20px;	
+}
+
+.post-pic { 
+	object-fit: cover;
+	border-radius: 10px 10px 10px 10px 
+}
+
+.icons-group {
+	padding-top: 20px;	
+	padding-bottom: 100px;
+	display:inline-flex;
+	flex-direction: row-reverse;
+}
+
+.icons-unit {
+	padding-left:10px;
+	padding-right:10px
+}
+
+.post-icons {
+	font-size: 1.5em;
+}
+
+.post-summary {
+	padding-top: 50px;
+	text-align: center;
+}
+
+.most-recent {
+	padding-bottom: 50px;
+	padding-left: 0px!important;
+	color: #ff4200;
+	font-family: Oswald,sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+	border-top: 6px solid #ff4200!important;
+}
+
+.recent-post {
+	font-size: 28px;
+	font-family: oswald,sans-serif;
+	padding-bottom: 50px;
+	text-align: center;
+}
+
+.recent-post-pic { 
+	object-fit: cover;
+	border-radius: 10px 10px 10px 10px 
+}
+

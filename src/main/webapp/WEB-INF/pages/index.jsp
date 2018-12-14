@@ -4,15 +4,17 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
   <head>  
-    <title>:: ARCHETYPE ::</title>
+    <title>:: Big Belly Blog ::</title>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     
-    <link rel="icon" href="https://raw.githubusercontent.com/rodolfotva/cdn/master/images/favicon.ico" type="image/x-icon" >
+    <link rel="icon" href="<c:url value="/static/images/favicon.ico" />" type="image/x-icon" >
     
     <link href="<c:url value="/static/css/bigbellyblog.css" />" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/v4-shims.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>    
@@ -48,15 +50,15 @@
 							<li ng-class="{active : menu == 'donation'}"><a href="#" ng-click="menuChange('donation')"><spring:message code="page2.title" /></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-			              <li><a href="/en/" title="English"><img src="https://raw.githubusercontent.com/rodolfotva/cdn/master/images/usa.png" height="16" width="16" /></a></li>
-			              <li><a href="/fr/" title="Francais"><img src="https://raw.githubusercontent.com/rodolfotva/cdn/master/images/france.png" height="16" width="16" /></a></li>
-			              <li><a href="/pt/" title="Portugues"><img src="https://raw.githubusercontent.com/rodolfotva/cdn/master/images/brazil.png" height="16" width="16" /></a></li>
+			              <li><a href="/en/" title="English"><img src="<c:url value="/static/images/usa.png" />" height="16" width="16" /></a></li>
+			              <li><a href="/fr/" title="Français"><img src="<c:url value="/static/images/france.png" />" height="16" width="16" /></a></li>
+			              <li><a href="/pt/" title="Portugues"><img src="<c:url value="/static/images/brazil.png" />" height="16" width="16" /></a></li>
             			</ul>
 					</div>
 				</div>
 			</nav>
 			
-			<div class="container_main container" >
+			<div class="container container_main" >
 				<div ng-switch="menu">
 					<div ng-switch-when="post" post-page></div>
 					<div ng-switch-when="donation" donation-page></div>
@@ -64,8 +66,8 @@
 			</div>
 
 			<div class="footer">
-				<div class="footer-copyright text-center py-3">2018 Copyright:
-				  <a href="https://www.yoursitehere.com/"> yoursitehere.com</a>
+				<div class="footer-copyright text-center py-3">2019 Copyright:
+				  <a href="https://www.bigbellyblog.com/"> bigbellyblog.com</a>
 				</div>
 			</div>
 		</div>	

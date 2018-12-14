@@ -1,5 +1,6 @@
 angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', 'mainService', function($scope, mainService) {
 	$scope.posts = {};
+	$scope.stars = [];
 	$scope.menu = 'post';
 
     $scope.fetchHomePost = function(){
@@ -11,6 +12,18 @@ angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', '
                 console.log('Error while fetching Posts');
             }
         );
+    }
+    
+    $scope.rateCalculation = function(rate){
+    	$scope.stars = [];
+    	var noRate = 5 - rate;
+    	for(var x = 0; x < rate; x++){
+    		$scope.stars.push('fa fa-star');
+    	}
+    	for(var y = 0; y < noRate; y++){
+    		$scope.stars.push('fa fa-star-o');
+    	}
+    	return $scope.stars;
     }
     
 	$scope.menuChange = function(value) {

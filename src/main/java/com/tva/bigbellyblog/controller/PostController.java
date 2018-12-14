@@ -33,7 +33,7 @@ public class PostController {
   @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<List<Post>> listHomePost() {
     logger.info("listAllGroups ResponseEntity");
-    List<Post> postLst = service.getLimitPosts(5);
+    List<Post> postLst = service.getLimitPosts(7);
 
     if (Objects.isNull(postLst) || postLst.isEmpty()) {
       return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
