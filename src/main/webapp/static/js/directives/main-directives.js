@@ -5,6 +5,11 @@ angular.module('main').directive('postPage', function () {
 		controller: 'mainController',
 		link: function($scope, $element, $attrs, ctrl){
 			$scope.fetchHomePost();
+			
+		    $scope.showPostContent = function(post) {
+		    	$scope.postMain = post; 
+		    	$scope.$apply;
+		    };
 		}
     };
 });

@@ -1,5 +1,6 @@
 angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', 'mainService', function($scope, mainService) {
 	$scope.posts = {};
+	$scope.postMain;
 	$scope.stars = [];
 	$scope.menu = 'post';
 
@@ -7,6 +8,8 @@ angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', '
     	mainService.fetchHomePost().then(
             function(response) {
             	$scope.posts = response.data;
+            	$scope.postMain = $scope.posts[0]; 
+            	$scope.$apply;
             },
             function(errResponse){
                 console.log('Error while fetching Posts');
@@ -29,4 +32,5 @@ angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', '
 	$scope.menuChange = function(value) {
 		$scope.menu = value;
     };
+
 }]);

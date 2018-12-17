@@ -55,9 +55,27 @@ body {
   color: orange;
 }
 
+.post-all {
+	padding-top: 40px;	
+}
+
 .post-title {
 	font-size: 36px;
 	font-family: oswald,sans-serif;
+}
+
+.post-address {
+	font-size: 14px;
+	padding-top: 10px;
+}
+
+.post-date {
+	font-size: 14px;
+	padding-top: 3px;
+}
+
+.post-stars {
+	padding-top: 6px;
 }
 
 .post-content {
@@ -72,7 +90,8 @@ body {
 
 .post-pic { 
 	object-fit: cover;
-	border-radius: 10px 10px 10px 10px 
+	border-radius: 10px 10px 10px 10px;
+	height:23%; 
 }
 
 .icons-group {
@@ -116,6 +135,7 @@ body {
 
 .recent-post-pic { 
 	object-fit: cover;
-	border-radius: 10px 10px 10px 10px 
+	border-radius: 10px 10px 10px 10px;
+	cursor: pointer; 
 }
 
