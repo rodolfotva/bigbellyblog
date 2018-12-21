@@ -47,7 +47,8 @@
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
 							<li ng-class="{active : menu == 'post'}"><a href="#" ng-click="menuChange('post')"><spring:message code="page1.title" /></a></li>
-							<li ng-class="{active : menu == 'donation'}"><a href="#" ng-click="menuChange('donation')"><spring:message code="page2.title" /></a></li>
+							<li ng-class="{active : menu == 'list'}"><a href="#" ng-click="menuChange('list')"><spring:message code="page2.title" /></a></li>
+							<li ng-class="{active : menu == 'donation'}"><a href="#" ng-click="menuChange('donation')"><spring:message code="page3.title" /></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 			              <li><a href="/en/" title="English"><img src="<c:url value="/static/images/usa.png" />" height="16" width="16" /></a></li>
@@ -61,6 +62,7 @@
 			<div class="container container_main" >
 				<div ng-switch="menu">
 					<div ng-switch-when="post" post-page></div>
+					<div ng-switch-when="list" list-page></div>
 					<div ng-switch-when="donation" donation-page></div>
 				</div>
 			</div>

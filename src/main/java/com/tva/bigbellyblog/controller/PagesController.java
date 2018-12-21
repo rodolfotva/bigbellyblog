@@ -29,4 +29,10 @@ public class PagesController {
     logger.info("loading donation page");
     return "donation";
   }
+
+  @RequestMapping(value = "list", method = RequestMethod.GET)
+  public String getListPage() {
+    logger.info("loading list page");
+    return "list";
+  }
 }

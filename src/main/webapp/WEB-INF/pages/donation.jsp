@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <div class="starter-template">
 	<h1><spring:message code="project.title" /></h1>
-	<h4><spring:message code="page2.title" /></h4>
+	<h4><spring:message code="page3.title" /></h4>
 	
 	<div class="donateBtn">
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">

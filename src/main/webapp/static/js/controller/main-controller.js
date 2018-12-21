@@ -12,6 +12,18 @@ angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', '
             	$scope.$apply;
             },
             function(errResponse){
+                console.log('Error while fetching home Posts');
+            }
+        );
+    }
+
+    $scope.fetchPosts = function(limit){
+    	mainService.fetchPosts(limit).then(
+            function(response) {
+            	$scope.posts = response.data;
+            	$scope.$apply;
+            },
+            function(errResponse){
                 console.log('Error while fetching Posts');
             }
         );

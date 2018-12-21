@@ -19,3 +19,14 @@ angular.module('main').directive('donationPage', function () {
         templateUrl: 'donation'
     };
 });
+
+angular.module('main').directive('listPage', function () {
+    return {
+        templateUrl: 'list',
+		restrict: 'AE',
+		controller: 'mainController',
+		link: function($scope, $element, $attrs, ctrl){
+			$scope.fetchPosts(10);
+		}
+    };
+});

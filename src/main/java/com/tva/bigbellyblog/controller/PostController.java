@@ -32,8 +32,22 @@ public class PostController {
 
   @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<List<Post>> listHomePost() {
-    logger.info("listAllGroups ResponseEntity");
+    logger.info("listHomePost ResponseEntity");
     List<Post> postLst = service.getLimitPosts(6);
+
+    if (Objects.isNull(postLst) || postLst.isEmpty()) {
+      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+    }
+
+    logger.info("Posts found: " + postLst.size());
+    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+
+  }
+
+  @RequestMapping(value = "/{limit}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<List<Post>> listLimitPost(@PathVariable("limit") int limit) {
+    logger.info("listLimitPost ResponseEntity");
+    List<Post> postLst = service.getLimitPosts(limit);
 
     if (Objects.isNull(postLst) || postLst.isEmpty()) {
       return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
