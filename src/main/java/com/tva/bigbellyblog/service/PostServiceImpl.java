@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -132,6 +133,11 @@ public class PostServiceImpl implements PostService {
       logger.error("Error to update coment into post: " + objectId);
       return false;
     }
+  }
+
+  @Override
+  public List<Post> getPaginationPosts(int ini, int fin, String sortBy, Direction direction) {
+    return postRepo.getLimitPosts(PageRequest.of(ini, fin, new Sort(direction, sortBy)));
   }
 
 }

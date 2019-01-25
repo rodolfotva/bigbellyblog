@@ -26,7 +26,7 @@ angular.module('main').directive('listPage', function () {
 		restrict: 'AE',
 		controller: 'mainController',
 		link: function($scope, $element, $attrs, ctrl){
-			$scope.fetchPosts(10);
+			$scope.sortPostList();
 		}
     };
 });

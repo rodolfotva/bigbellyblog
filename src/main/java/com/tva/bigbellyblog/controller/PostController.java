@@ -6,6 +6,8 @@ import java.util.Objects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +36,21 @@ public class PostController {
   public ResponseEntity<List<Post>> listHomePost() {
     logger.info("listHomePost ResponseEntity");
     List<Post> postLst = service.getLimitPosts(6);
+
+    if (Objects.isNull(postLst) || postLst.isEmpty()) {
+      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+    }
+
+    logger.info("Posts found: " + postLst.size());
+    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+
+  }
+
+  @RequestMapping(value = "/alpha", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<List<Post>> listPostByAlpha() {
+    logger.info("listPostByAlpha ResponseEntity");
+    List<Post> postLst = service.getLimitPosts(10);
+    postLst.stream().sorted((v1, v2) -> v1.getRestaurantName().compareTo(v2.getRestaurantName()));
 
     if (Objects.isNull(postLst) || postLst.isEmpty()) {
       return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
@@ -100,5 +117,22 @@ public class PostController {
 
   }
 
+  @RequestMapping(value = "/pagination/{page}/{dataPerPage}/{sortBy}/{asc}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<List<Post>> pagination(@PathVariable("page") int page, @PathVariable("dataPerPage") int dataPerPage, @PathVariable("sortBy") String sortBy,
+      @PathVariable("asc") boolean asc) {
+
+    logger.info("pagination ResponseEntity");
+
+    Direction direction = asc ? Sort.Direction.ASC : Sort.Direction.DESC;
+    List<Post> postLst = service.getPaginationPosts(page - 1, dataPerPage, sortBy, direction);
+
+    if (Objects.isNull(postLst) || postLst.isEmpty()) {
+      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+    }
+
+    logger.info("Posts found: " + postLst.size());
+    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+
+  }
 
 }

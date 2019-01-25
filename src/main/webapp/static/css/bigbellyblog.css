@@ -139,3 +139,19 @@ body {
 	cursor: pointer; 
 }
 
+.li-pagination {
+	cursor: pointer;
+}
+
+.sort-by-box {
+	text-align-last: end;
+}
+
+.pagination-box {
+	text-align-last: end;
+}
+
+.list-title {
+	padding-bottom: 50px
+}
+
