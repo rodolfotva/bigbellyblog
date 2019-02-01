@@ -74,36 +74,36 @@ public class PostServiceImpl implements PostService {
   }
 
   @Override
-  public boolean changeLike(String objectId, int value) {
+  public Post changeLike(String objectId, int value) {
     Post post = postRepo.findById(objectId).get();
     if (Objects.nonNull(post)) {
       post.setLike(post.getLike() + value);
       postRepo.save(post);
-      return true;
+      return post;
     }
-    return false;
+    return post;
   }
 
   @Override
-  public boolean changeDislike(String objectId, int value) {
+  public Post changeDislike(String objectId, int value) {
     Post post = postRepo.findById(objectId).get();
     if (Objects.nonNull(post)) {
-      post.setLike(post.getLike() + value);
+      post.setDislike(post.getDislike() + value);
       postRepo.save(post);
-      return true;
+      return post;
     }
-    return false;
+    return post;
   }
 
   @Override
-  public boolean changeVisitorNumber(String objectId, int value) {
+  public Post changeVisitorNumber(String objectId, int value) {
     Post post = postRepo.findById(objectId).get();
     if (Objects.nonNull(post)) {
-      post.setLike(post.getLike() + value);
+      post.setVisitors((post.getVisitors() + value));
       postRepo.save(post);
-      return true;
+      return post;
     }
-    return false;
+    return post;
   }
 
   @Override

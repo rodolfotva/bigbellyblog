@@ -5,11 +5,19 @@ angular.module('main').directive('postPage', function () {
 		controller: 'mainController',
 		link: function($scope, $element, $attrs, ctrl){
 			$scope.fetchHomePost();
-			
-		    $scope.showPostContent = function(post) {
-		    	$scope.postMain = post; 
-		    	$scope.$apply;
+		    
+		    $scope.addVisitorDir = function(post, value) {
+		    	$scope.addVisitor(post.objectId, value);
 		    };
+		    
+		    $scope.likePostDir = function(post, value) {
+		    	$scope.likePost(post.objectId, value);
+		    };
+		    
+		    $scope.dislikePostDir = function(post, value) {
+		    	$scope.dislikePost(post.objectId, value);
+		    };
+
 		}
     };
 });
@@ -27,6 +35,10 @@ angular.module('main').directive('listPage', function () {
 		controller: 'mainController',
 		link: function($scope, $element, $attrs, ctrl){
 			$scope.sortPostList();
+			
+		    $scope.addVisitorDir = function(post, value) {
+		    	$scope.addVisitor(post.objectId, value);
+		    };
 		}
     };
 });

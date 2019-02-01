@@ -76,45 +76,44 @@ public class PostController {
   }
 
   @RequestMapping(value = "/like/{like}/{objectId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Boolean> likePost(@PathVariable("like") int like, @PathVariable("objectId") String objectId) {
+  public ResponseEntity<Post> likePost(@PathVariable("like") int like, @PathVariable("objectId") String objectId) {
     logger.info("likePost ResponseEntity");
-    boolean likeOk = service.changeLike(objectId, like);
+    Post post = service.changeLike("5c112dd873f93738c4bba6ca", like);
 
-    if (likeOk) {
-      return new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT);
+    if (Objects.isNull(post)) {
+      return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
     }
 
-    logger.info("Like OK: " + likeOk);
-    return new ResponseEntity<Boolean>(likeOk, HttpStatus.OK);
+    logger.info("Like OK: " + post.getLike());
+    return new ResponseEntity<Post>(post, HttpStatus.OK);
 
   }
 
   @RequestMapping(value = "/dislike/{unlike}/{objectId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Boolean> dislikePost(@PathVariable("unlike") int unlike, @PathVariable("objectId") String objectId) {
-    logger.info("unlikePost ResponseEntity");
-    boolean unlikeOk = service.changeLike(objectId, unlike);
+  public ResponseEntity<Post> dislikePost(@PathVariable("unlike") int unlike, @PathVariable("objectId") String objectId) {
+    logger.info("dislike ResponseEntity");
+    Post post = service.changeDislike("5c112dd873f93738c4bba6ca", unlike);
 
-    if (unlikeOk) {
-      return new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT);
+    if (Objects.isNull(post)) {
+      return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
     }
 
-    logger.info("Unlike OK: " + unlikeOk);
-    return new ResponseEntity<Boolean>(unlikeOk, HttpStatus.OK);
+    logger.info("Dislike OK: " + post.getDislike());
+    return new ResponseEntity<Post>(post, HttpStatus.OK);
 
   }
 
   @RequestMapping(value = "/addVisitor/{value}/{objectId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Boolean> addVisitor(@PathVariable("value") int value, @PathVariable("objectId") String objectId) {
+  public ResponseEntity<Post> addVisitor(@PathVariable("value") int value, @PathVariable("objectId") String objectId) {
     logger.info("addVisitor ResponseEntity");
-    boolean visitorOk = service.changeVisitorNumber(objectId, value);
+    Post post = service.changeVisitorNumber("5c112dd873f93738c4bba6ca", value);
 
-    if (visitorOk) {
-      return new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT);
+    if (Objects.isNull(post)) {
+      return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
     }
 
-    logger.info("Visitor OK: " + visitorOk);
-    return new ResponseEntity<Boolean>(visitorOk, HttpStatus.OK);
-
+    logger.info("Visitor OK: " + post.getVisitors());
+    return new ResponseEntity<Post>(post, HttpStatus.OK);
   }
 
   @RequestMapping(value = "/pagination/{page}/{dataPerPage}/{sortBy}/{asc}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

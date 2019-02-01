@@ -9,12 +9,58 @@ angular.module('main', ['ngSanitize']).controller('mainController', ['$scope', '
 	$scope.pages = [1,2,3,4,5,6,7,8,9,10];
 	$scope.dataPerPage = 10;
 
+    $scope.addVisitor = function(objectId, value){
+    	mainService.addVisitor(objectId, value).then(
+            function(response) {
+            	$scope.postMain = response.data;
+            	$scope.$apply;
+            },
+            function(errResponse){
+                console.log('Error while addVisitor Posts');
+            }
+        );
+    }
+    
+    $scope.addVisitor2 = function(objectId, value){
+    	mainService.addVisitor(objectId, value).then(
+            function(response) {},
+            function(errResponse){
+                console.log('Error while addVisitor Posts');
+            }
+        );
+    }
+    
+    $scope.likePost = function(objectId, value){
+    	mainService.likePost(objectId, value).then(
+            function(response) {
+            	$scope.postMain = response.data;
+            	$scope.$apply;
+            },
+            function(errResponse){
+                console.log('Error while likePost Posts');
+            }
+        );
+    }
+    
+    $scope.dislikePost = function(objectId, value){
+    	mainService.dislikePost(objectId, value).then(
+            function(response) {
+            	$scope.postMain = response.data;
+            	$scope.$apply;
+            },
+            function(errResponse){
+                console.log('Error while dislikePost Posts');
+            }
+        );
+    }
+
     $scope.fetchHomePost = function(){
     	mainService.fetchHomePost().then(
             function(response) {
             	$scope.posts = response.data;
             	$scope.postMain = $scope.posts[0]; 
             	$scope.$apply;
+            	$scope.addVisitor2($scope.postMain.objectId, 1);
             },
             function(errResponse){
                 console.log('Error while fetching home Posts');

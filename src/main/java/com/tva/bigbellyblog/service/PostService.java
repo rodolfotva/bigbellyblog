@@ -23,11 +23,11 @@ public interface PostService {
 
   public List<Post> getLimitPosts(int limit);
 
-  public boolean changeLike(String objectId, int value);
+  public Post changeLike(String objectId, int value);
 
-  public boolean changeDislike(String objectId, int value);
+  public Post changeDislike(String objectId, int value);
 
-  public boolean changeVisitorNumber(String objectId, int value);
+  public Post changeVisitorNumber(String objectId, int value);
 
   public boolean addComment(String objectId, Comment comment);
 

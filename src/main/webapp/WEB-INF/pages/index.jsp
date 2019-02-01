@@ -44,10 +44,10 @@
 						</button>
 						<a class="navbar-brand" href="#"><spring:message code="project.title" /></a>
 					</div>
-					<div id="navbar" class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">
+					<div class="collapse navbar-collapse">
+						<ul id="navbar" class="nav navbar-nav">
 							<li ng-class="{active : menu == 'post'}"><a href="#" ng-click="menuChange('post')"><spring:message code="page1.title" /></a></li>
-							<li ng-class="{active : menu == 'list'}"><a href="#" ng-click="menuChange('list')"><spring:message code="page2.title" /></a></li>
+							<li ng-class="{active : menu == 'list'}"><a href="#" ng-click="menuChange('list')"><spring:message code="page2.explanation" /></a></li>
 							<li ng-class="{active : menu == 'donation'}"><a href="#" ng-click="menuChange('donation')"><spring:message code="page3.title" /></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
