@@ -15,21 +15,21 @@
 }
 
 .navbar-default {
-	background-image: linear-gradient(to bottom,#f8f8f8 0,#fc3c05bf 150%) !important;
-	color: #212121 !important;
+	background-image: linear-gradient(to bottom,#fc3c0599 0,#fc3c05 150%) !important;
+	color: #000000 !important;
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #212121 !important;
+	color: #000000 !important;
 }
 
 .navbar-default .navbar-nav>.active>a {
-	background-image: linear-gradient(to bottom,#f8f8f8 0,#fc3c05bf 230%) !important;
-	color: #545454 !important;
+	background-image: linear-gradient(to bottom,#fc3c057d 0,#fc3c05 230%) !important;
+	color: #3a3a3a !important;
 }
 
 .navbar-default .navbar-brand {
-    color: #212121 !important;
+    color: #000000 !important;
 }
 
 .container_main {
