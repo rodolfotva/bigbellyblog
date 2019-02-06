@@ -15,7 +15,7 @@
 }
 
 .navbar-default {
-	background-image: linear-gradient(to bottom,#fc3c0599 0,#fc3c05 150%) !important;
+	background-image: linear-gradient(to bottom,#fc3c0599 0,#fc3c0599 150%) !important;
 	color: #000000 !important;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .navbar-default .navbar-nav>.active>a {
-	background-image: linear-gradient(to bottom,#fc3c057d 0,#fc3c05 230%) !important;
+	background-image: linear-gradient(to bottom,#fc3c0557 0,#fc3c0557 150%) !important;
 	color: #3a3a3a !important;
 }
 
@@ -109,7 +109,7 @@ body {
 .post-pic { 
 	object-fit: cover;
 	border-radius: 10px 10px 10px 10px;
-	height:23%; 
+	cursor: pointer;
 }
 
 .icons-group {

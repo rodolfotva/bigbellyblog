@@ -70,11 +70,11 @@ public class DbTests {
   public void changeLike() {
     assertThat(postService, instanceOf(PostServiceImpl.class));
 
-    boolean likeOk = postService.changeLike("5c058b2badb8316a44901596", 1);
+    Post likeOk = postService.changeLike("5c058b2badb8316a44901596", 1);
     assertEquals(true, likeOk);
 
     likeOk = postService.changeLike("5c058b2badb8316a44901596", -1);
-    assertEquals(true, likeOk);
+    assertEquals(true, likeOk.getLike());
   }
 
   // @Test

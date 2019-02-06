@@ -35,4 +35,10 @@ public class PagesController {
     logger.info("loading list page");
     return "list";
   }
+
+  @RequestMapping(value = "postmain", method = RequestMethod.GET)
+  public String getPostMainPage() {
+    logger.info("loading postmain page");
+    return "postmain";
+  }
 }
