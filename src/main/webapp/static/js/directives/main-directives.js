@@ -7,15 +7,15 @@ angular.module('main').directive('postPage', function () {
 			$scope.fetchHomePost();
 		    
 		    $scope.addVisitorDir = function(post, value) {
-		    	$scope.addVisitor(post.objectId, value);
+		    	$scope.addVisitor(post.postId, value);
 		    };
 		    
 		    $scope.likePostDir = function(post, value) {
-		    	$scope.likePost(post.objectId, value);
+		    	$scope.likePost(post.postId, value);
 		    };
 		    
 		    $scope.dislikePostDir = function(post, value) {
-		    	$scope.dislikePost(post.objectId, value);
+		    	$scope.dislikePost(post.postId, value);
 		    };
 
 		}
@@ -37,7 +37,7 @@ angular.module('main').directive('listPage', function () {
 			$scope.sortPostList();
 			
 		    $scope.addVisitorDir = function(post, value) {
-		    	$scope.addVisitor(post.objectId, value);
+		    	$scope.addVisitor(post.postId, value);
 		    };
 		}
     };

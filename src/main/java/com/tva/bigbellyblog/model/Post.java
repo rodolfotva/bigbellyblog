@@ -11,185 +11,193 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "post")
 public class Post {
 
-  @Id
-  private ObjectId objectId;
-  @Field("title")
-  private String title;
-  @Field("resName")
-  private String restaurantName;
-  @Field("contentEn")
-  private String contentEn;
-  @Field("contentFr")
-  private String contentFr;
-  @Field("contentPt")
-  private String contentPt;
-  @Field("website")
-  private String website;
-  @Field("tripadvisor")
-  private String tripadvisor;
-  @Field("facebook")
-  private String facebook;
+	@Id
+	private ObjectId objectId;
+	@Field("postId")
+	private String postId;
+	@Field("title")
+	private String title;
+	@Field("resName")
+	private String restaurantName;
+	@Field("contentEn")
+	private String contentEn;
+	@Field("contentFr")
+	private String contentFr;
+	@Field("contentPt")
+	private String contentPt;
+	@Field("website")
+	private String website;
+	@Field("tripadvisor")
+	private String tripadvisor;
+	@Field("facebook")
+	private String facebook;
 
-  @Field("postDate")
-  private Date postDate;
+	@Field("postDate")
+	private Date postDate;
 
-  @Field("rate")
-  private Integer rate;
-  @Field("like")
-  private Integer like;
-  @Field("dislike")
-  private Integer dislike;
-  @Field("visitors")
-  private Integer visitors;
+	@Field("rate")
+	private Integer rate;
+	@Field("like")
+	private Integer like;
+	@Field("dislike")
+	private Integer dislike;
+	@Field("visitors")
+	private Integer visitors;
 
-  @Field("pics")
-  private List<String> pics;
+	@Field("pics")
+	private List<String> pics;
 
-  @Field("comments")
-  private List<Comment> comments;
-  @Field("address")
-  private List<Address> address;
+	@Field("comments")
+	private List<Comment> comments;
+	@Field("address")
+	private List<Address> address;
 
-  public Post() {
-    super();
-  }
+	public Post() {
+		super();
+	}
 
-  public ObjectId getObjectId() {
-    return objectId;
-  }
+	public ObjectId getObjectId() {
+		return objectId;
+	}
 
-  public void setObjectId(ObjectId objectId) {
-    this.objectId = objectId;
-  }
+	public void setObjectId(ObjectId objectId) {
+		this.objectId = objectId;
+	}
 
-  public String getTitle() {
-    return title;
-  }
+	public String getPostId() {
+		return postId;
+	}
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+	public void setPostId(String postId) {
+		this.postId = postId;
+	}
 
-  public String getRestaurantName() {
-    return restaurantName;
-  }
+	public String getTitle() {
+		return title;
+	}
 
-  public void setRestaurantName(String restaurantName) {
-    this.restaurantName = restaurantName;
-  }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-  public String getContentEn() {
-    return contentEn;
-  }
+	public String getRestaurantName() {
+		return restaurantName;
+	}
 
-  public void setContentEn(String contentEn) {
-    this.contentEn = contentEn;
-  }
+	public void setRestaurantName(String restaurantName) {
+		this.restaurantName = restaurantName;
+	}
 
-  public String getContentFr() {
-    return contentFr;
-  }
+	public String getContentEn() {
+		return contentEn;
+	}
 
-  public void setContentFr(String contentFr) {
-    this.contentFr = contentFr;
-  }
+	public void setContentEn(String contentEn) {
+		this.contentEn = contentEn;
+	}
 
-  public String getContentPt() {
-    return contentPt;
-  }
+	public String getContentFr() {
+		return contentFr;
+	}
 
-  public void setContentPt(String contentPt) {
-    this.contentPt = contentPt;
-  }
+	public void setContentFr(String contentFr) {
+		this.contentFr = contentFr;
+	}
 
-  public String getWebsite() {
-    return website;
-  }
+	public String getContentPt() {
+		return contentPt;
+	}
 
-  public void setWebsite(String website) {
-    this.website = website;
-  }
+	public void setContentPt(String contentPt) {
+		this.contentPt = contentPt;
+	}
 
-  public String getTripadvisor() {
-    return tripadvisor;
-  }
+	public String getWebsite() {
+		return website;
+	}
 
-  public void setTripadvisor(String tripadvisor) {
-    this.tripadvisor = tripadvisor;
-  }
+	public void setWebsite(String website) {
+		this.website = website;
+	}
 
-  public String getFacebook() {
-    return facebook;
-  }
+	public String getTripadvisor() {
+		return tripadvisor;
+	}
 
-  public void setFacebook(String facebook) {
-    this.facebook = facebook;
-  }
+	public void setTripadvisor(String tripadvisor) {
+		this.tripadvisor = tripadvisor;
+	}
 
-  public Date getPostDate() {
-    return postDate;
-  }
+	public String getFacebook() {
+		return facebook;
+	}
 
-  public void setPostDate(Date postDate) {
-    this.postDate = postDate;
-  }
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
+	}
 
-  public Integer getRate() {
-    return rate;
-  }
+	public Date getPostDate() {
+		return postDate;
+	}
 
-  public void setRate(Integer rate) {
-    this.rate = rate;
-  }
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
+	}
 
-  public Integer getLike() {
-    return like;
-  }
+	public Integer getRate() {
+		return rate;
+	}
 
-  public void setLike(Integer like) {
-    this.like = like;
-  }
+	public void setRate(Integer rate) {
+		this.rate = rate;
+	}
 
-  public Integer getDislike() {
-    return dislike;
-  }
+	public Integer getLike() {
+		return like;
+	}
 
-  public void setDislike(Integer dislike) {
-    this.dislike = dislike;
-  }
+	public void setLike(Integer like) {
+		this.like = like;
+	}
 
-  public Integer getVisitors() {
-    return visitors;
-  }
+	public Integer getDislike() {
+		return dislike;
+	}
 
-  public void setVisitors(Integer visitors) {
-    this.visitors = visitors;
-  }
+	public void setDislike(Integer dislike) {
+		this.dislike = dislike;
+	}
 
-  public List<String> getPics() {
-    return pics;
-  }
+	public Integer getVisitors() {
+		return visitors;
+	}
 
-  public void setPics(List<String> pics) {
-    this.pics = pics;
-  }
+	public void setVisitors(Integer visitors) {
+		this.visitors = visitors;
+	}
 
-  public List<Comment> getComments() {
-    return comments;
-  }
+	public List<String> getPics() {
+		return pics;
+	}
 
-  public void setComments(List<Comment> comments) {
-    this.comments = comments;
-  }
+	public void setPics(List<String> pics) {
+		this.pics = pics;
+	}
 
-  public List<Address> getAddress() {
-    return address;
-  }
+	public List<Comment> getComments() {
+		return comments;
+	}
 
-  public void setAddress(List<Address> address) {
-    this.address = address;
-  }
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
+	public List<Address> getAddress() {
+		return address;
+	}
 
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 
 }

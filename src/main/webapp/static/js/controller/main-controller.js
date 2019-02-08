@@ -41,8 +41,8 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
 	
 	//*************************
 
-    $scope.addVisitor = function(objectId, value){
-    	mainService.addVisitor(objectId, value).then(
+    $scope.addVisitor = function(postId, value){
+    	mainService.addVisitor(postId, value).then(
             function(response) {
             	$scope.postMain = response.data;
             	$scope.$apply;
@@ -53,8 +53,8 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
         );
     }
     
-    $scope.addVisitor2 = function(objectId, value){
-    	mainService.addVisitor(objectId, value).then(
+    $scope.addVisitor2 = function(postId, value){
+    	mainService.addVisitor(postId, value).then(
             function(response) {},
             function(errResponse){
                 console.log('Error while addVisitor Posts');
@@ -62,8 +62,8 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
         );
     }
     
-    $scope.likePost = function(objectId, value){
-    	mainService.likePost(objectId, value).then(
+    $scope.likePost = function(postId, value){
+    	mainService.likePost(postId, value).then(
             function(response) {
             	$scope.postMain = response.data;
             	$scope.$apply;
@@ -74,8 +74,8 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
         );
     }
     
-    $scope.dislikePost = function(objectId, value){
-    	mainService.dislikePost(objectId, value).then(
+    $scope.dislikePost = function(postId, value){
+    	mainService.dislikePost(postId, value).then(
             function(response) {
             	$scope.postMain = response.data;
             	$scope.$apply;
@@ -92,7 +92,7 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
             	$scope.posts = response.data;
             	$scope.postMain = $scope.posts[0]; 
             	$scope.$apply;
-            	$scope.addVisitor2($scope.postMain.objectId, 1);
+            	$scope.addVisitor2($scope.postMain.postId, 1);
             },
             function(errResponse){
                 console.log('Error while fetching home Posts');

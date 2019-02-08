@@ -19,9 +19,9 @@ angular.module('main').factory('mainService', ['$http', '$q', function($http, $q
  
     return factory;
 
-    function addVisitor(objectId, value) {
+    function addVisitor(postId, value) {
     	var deferred = $q.defer();
-        $http.get(REST_SERVICE_VISITOR_POST_URI+"/"+value+"/"+objectId).then(
+        $http.get(REST_SERVICE_VISITOR_POST_URI+"/"+value+"/"+postId).then(
             function (response) {
                 deferred.resolve(response);
             },
@@ -34,9 +34,9 @@ angular.module('main').factory('mainService', ['$http', '$q', function($http, $q
         return deferred.promise;
     }
     
-    function likePost(objectId, value) {
+    function likePost(postId, value) {
     	var deferred = $q.defer();
-        $http.get(REST_SERVICE_LIKE_POST_URI+"/"+value+"/"+objectId).then(
+        $http.get(REST_SERVICE_LIKE_POST_URI+"/"+value+"/"+postId).then(
             function (response) {
                 deferred.resolve(response);
             },
@@ -49,9 +49,9 @@ angular.module('main').factory('mainService', ['$http', '$q', function($http, $q
         return deferred.promise;
     }
     
-    function dislikePost(objectId, value) {
+    function dislikePost(postId, value) {
     	var deferred = $q.defer();
-        $http.get(REST_SERVICE_DISLIKE_POST_URI+"/"+value+"/"+objectId).then(
+        $http.get(REST_SERVICE_DISLIKE_POST_URI+"/"+value+"/"+postId).then(
             function (response) {
                 deferred.resolve(response);
             },

@@ -11,10 +11,10 @@ import com.tva.bigbellyblog.model.Header;
 @Repository
 public interface HeaderRepository extends MongoRepository<Header, String> {
 
-  @Query("{'id':?0}")
-  Header findByid(String id);
+	@Query("{'id':?0}")
+	Header findByid(String id);
 
-  @Query("{'key':?0}")
-  List<Header> findByKey(String key);
+	@Query("{'key':?0}")
+	List<Header> findByKey(String key);
 
 }

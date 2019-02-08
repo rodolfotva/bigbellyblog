@@ -13,13 +13,16 @@ import com.tva.bigbellyblog.model.Post;
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
 
-  @Query("{'resName':?0}")
-  List<Post> findByName(String resName);
+	@Query("{'resName':?0}")
+	List<Post> findByName(String resName);
 
-  @Query("{'postDate' : { '$gt' : ?0 }}")
-  List<Post> findGtPostDate(Date postDate);
+	@Query("{'postDate' : { '$gt' : ?0 }}")
+	List<Post> findGtPostDate(Date postDate);
 
-  @Query("{ 'rate' : {$lt: 10 } }")
-  List<Post> getLimitPosts(Pageable pageable);
+	@Query("{ 'rate' : {$lt: 10 } }")
+	List<Post> getLimitPosts(Pageable pageable);
+
+	@Query("{'postId':?0}")
+	Post findByPostId(String postId);
 
 }

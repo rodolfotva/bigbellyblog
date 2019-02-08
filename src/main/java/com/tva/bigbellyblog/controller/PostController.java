@@ -23,115 +23,115 @@ import com.tva.bigbellyblog.service.PostService;
 @RequestMapping("/post")
 public class PostController {
 
-  @Autowired
-  private PostService service;
+	@Autowired
+	private PostService service;
 
-  private static final Logger logger = LogManager.getLogger(PostController.class.getName());
+	private static final Logger logger = LogManager.getLogger(PostController.class.getName());
 
-  public PostController() {
-    logger.info("Initializing Post Controller");
-  }
+	public PostController() {
+		logger.info("Initializing Post Controller");
+	}
 
-  @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<List<Post>> listHomePost() {
-    logger.info("listHomePost ResponseEntity");
-    List<Post> postLst = service.getLimitPosts(6);
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Post>> listHomePost() {
+		logger.info("listHomePost ResponseEntity");
+		List<Post> postLst = service.getLimitPosts(6);
 
-    if (Objects.isNull(postLst) || postLst.isEmpty()) {
-      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
-    }
+		if (Objects.isNull(postLst) || postLst.isEmpty()) {
+			return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+		}
 
-    logger.info("Posts found: " + postLst.size());
-    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+		logger.info("Posts found: " + postLst.size());
+		return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
 
-  }
+	}
 
-  @RequestMapping(value = "/alpha", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<List<Post>> listPostByAlpha() {
-    logger.info("listPostByAlpha ResponseEntity");
-    List<Post> postLst = service.getLimitPosts(10);
-    postLst.stream().sorted((v1, v2) -> v1.getRestaurantName().compareTo(v2.getRestaurantName()));
+	@RequestMapping(value = "/alpha", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Post>> listPostByAlpha() {
+		logger.info("listPostByAlpha ResponseEntity");
+		List<Post> postLst = service.getLimitPosts(10);
+		postLst.stream().sorted((v1, v2) -> v1.getRestaurantName().compareTo(v2.getRestaurantName()));
 
-    if (Objects.isNull(postLst) || postLst.isEmpty()) {
-      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
-    }
+		if (Objects.isNull(postLst) || postLst.isEmpty()) {
+			return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+		}
 
-    logger.info("Posts found: " + postLst.size());
-    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+		logger.info("Posts found: " + postLst.size());
+		return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
 
-  }
+	}
 
-  @RequestMapping(value = "/{limit}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<List<Post>> listLimitPost(@PathVariable("limit") int limit) {
-    logger.info("listLimitPost ResponseEntity");
-    List<Post> postLst = service.getLimitPosts(limit);
+	@RequestMapping(value = "/{limit}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Post>> listLimitPost(@PathVariable("limit") int limit) {
+		logger.info("listLimitPost ResponseEntity");
+		List<Post> postLst = service.getLimitPosts(limit);
 
-    if (Objects.isNull(postLst) || postLst.isEmpty()) {
-      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
-    }
+		if (Objects.isNull(postLst) || postLst.isEmpty()) {
+			return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+		}
 
-    logger.info("Posts found: " + postLst.size());
-    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+		logger.info("Posts found: " + postLst.size());
+		return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
 
-  }
+	}
 
-  @RequestMapping(value = "/like/{like}/{objectId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Post> likePost(@PathVariable("like") int like, @PathVariable("objectId") String objectId) {
-    logger.info("likePost ResponseEntity");
-    Post post = service.changeLike("5c112dd873f93738c4bba6ca", like);
+	@RequestMapping(value = "/like/{like}/{postId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Post> likePost(@PathVariable("like") int like, @PathVariable("postId") String postId) {
+		logger.info("likePost ResponseEntity");
+		Post post = service.changeLike(postId, like);
 
-    if (Objects.isNull(post)) {
-      return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
-    }
+		if (Objects.isNull(post)) {
+			return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
+		}
 
-    logger.info("Like OK: " + post.getLike());
-    return new ResponseEntity<Post>(post, HttpStatus.OK);
+		logger.info("Like OK: " + post.getLike());
+		return new ResponseEntity<Post>(post, HttpStatus.OK);
 
-  }
+	}
 
-  @RequestMapping(value = "/dislike/{unlike}/{objectId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Post> dislikePost(@PathVariable("unlike") int unlike, @PathVariable("objectId") String objectId) {
-    logger.info("dislike ResponseEntity");
-    Post post = service.changeDislike("5c112dd873f93738c4bba6ca", unlike);
+	@RequestMapping(value = "/dislike/{unlike}/{postId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Post> dislikePost(@PathVariable("unlike") int unlike, @PathVariable("postId") String postId) {
+		logger.info("dislike ResponseEntity");
+		Post post = service.changeDislike(postId, unlike);
 
-    if (Objects.isNull(post)) {
-      return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
-    }
+		if (Objects.isNull(post)) {
+			return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
+		}
 
-    logger.info("Dislike OK: " + post.getDislike());
-    return new ResponseEntity<Post>(post, HttpStatus.OK);
+		logger.info("Dislike OK: " + post.getDislike());
+		return new ResponseEntity<Post>(post, HttpStatus.OK);
 
-  }
+	}
 
-  @RequestMapping(value = "/addVisitor/{value}/{objectId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Post> addVisitor(@PathVariable("value") int value, @PathVariable("objectId") String objectId) {
-    logger.info("addVisitor ResponseEntity");
-    Post post = service.changeVisitorNumber("5c112dd873f93738c4bba6ca", value);
+	@RequestMapping(value = "/addVisitor/{value}/{postId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Post> addVisitor(@PathVariable("value") int value, @PathVariable("postId") String postId) {
+		logger.info("addVisitor ResponseEntity");
+		Post post = service.changeVisitorNumber(postId, value);
 
-    if (Objects.isNull(post)) {
-      return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
-    }
+		if (Objects.isNull(post)) {
+			return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
+		}
 
-    logger.info("Visitor OK: " + post.getVisitors());
-    return new ResponseEntity<Post>(post, HttpStatus.OK);
-  }
+		logger.info("Visitor OK: " + post.getVisitors());
+		return new ResponseEntity<Post>(post, HttpStatus.OK);
+	}
 
-  @RequestMapping(value = "/pagination/{page}/{dataPerPage}/{sortBy}/{asc}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<List<Post>> pagination(@PathVariable("page") int page, @PathVariable("dataPerPage") int dataPerPage, @PathVariable("sortBy") String sortBy,
-      @PathVariable("asc") boolean asc) {
+	@RequestMapping(value = "/pagination/{page}/{dataPerPage}/{sortBy}/{asc}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Post>> pagination(@PathVariable("page") int page, @PathVariable("dataPerPage") int dataPerPage, @PathVariable("sortBy") String sortBy,
+			@PathVariable("asc") boolean asc) {
 
-    logger.info("pagination ResponseEntity");
+		logger.info("pagination ResponseEntity");
 
-    Direction direction = asc ? Sort.Direction.ASC : Sort.Direction.DESC;
-    List<Post> postLst = service.getPaginationPosts(page - 1, dataPerPage, sortBy, direction);
+		Direction direction = asc ? Sort.Direction.ASC : Sort.Direction.DESC;
+		List<Post> postLst = service.getPaginationPosts(page - 1, dataPerPage, sortBy, direction);
 
-    if (Objects.isNull(postLst) || postLst.isEmpty()) {
-      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
-    }
+		if (Objects.isNull(postLst) || postLst.isEmpty()) {
+			return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+		}
 
-    logger.info("Posts found: " + postLst.size());
-    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+		logger.info("Posts found: " + postLst.size());
+		return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
 
-  }
+	}
 
 }
