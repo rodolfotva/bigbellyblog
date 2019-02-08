@@ -28,7 +28,7 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th></th>
+						<th><spring:message code="default.open" /></th>
 						<th><spring:message code="default.name" /></th>
 						<th><spring:message code="default.city" /></th>
 						<th><spring:message code="default.postdate" /></th>
@@ -36,7 +36,11 @@
 				</thead>
 				<tbody ng-repeat="post in posts | orderBy:sortListBy:reverse">
 					<tr>
-						<th><p ng-click="addVisitorDir(post, 1)"><img src="<c:url value="/static/images/cutlery.png" />" height="32" width="32" /></p></td>
+						<th>
+							<div ng-click="addVisitorDir(post, 1)" class="list-post-open">
+								<div class="list-post-open-letter">{{post.title | limitTo:1}}</div>
+							</div>
+						</th>
 						<td>{{post.title}}</td>
 						<td>{{post.address[0].city}}</td>
 						<td>{{post.postDate | date}}</td>

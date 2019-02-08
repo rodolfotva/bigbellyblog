@@ -41,4 +41,10 @@ public class PagesController {
     logger.info("loading postmain page");
     return "postmain";
   }
+
+  @RequestMapping(value = "manager", method = RequestMethod.GET)
+  public String getManagerPage() {
+    logger.info("loading manager page");
+    return "manager";
+  }
 }

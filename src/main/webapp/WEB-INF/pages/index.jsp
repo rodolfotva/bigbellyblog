@@ -53,6 +53,7 @@
 							<li ng-class="{active : menu == 'post'}"><a href="#" ng-click="menuChange('post')"><spring:message code="page1.title" /></a></li>
 							<li ng-class="{active : menu == 'list'}"><a href="#" ng-click="menuChange('list')"><spring:message code="page2.explanation" /></a></li>
 							<li ng-class="{active : menu == 'donation'}"><a href="#" ng-click="menuChange('donation')"><spring:message code="page3.title" /></a></li>
+							<li ng-if="showManagerBtn" ng-class="{active : menu == 'manager'}"><a href="#" ng-click="menuChange('manager')"><spring:message code="page.manager.title" /></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 			              <li><a href="/en/" title="English"><img src="<c:url value="/static/images/usa.png" />" height="16" width="16" /></a></li>
@@ -68,11 +69,12 @@
 					<div ng-switch-when="post" post-page></div>
 					<div ng-switch-when="list" list-page></div>
 					<div ng-switch-when="donation" donation-page></div>
+					<div ng-switch-when="manager" manager-page></div>
 				</div>
 			</div>
 
 			<div class="footer">
-				<div class="footer-copyright text-center py-3">2019 Copyright:
+				<div class="footer-copyright text-center py-3"><spam ng-click="showManagerButton()">2019</spam> Copyright:
 				  <a href="https://www.bigbellyblog.com/"> bigbellyblog.com</a>
 				</div>
 			</div>

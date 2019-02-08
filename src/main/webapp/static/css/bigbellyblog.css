@@ -106,10 +106,14 @@ body {
 	padding-top: 20px;	
 }
 
-.post-pic { 
+.post-pic-img { 
 	object-fit: cover;
 	border-radius: 10px 10px 10px 10px;
 	cursor: pointer;
+}
+
+.post-pic-div { 
+	padding-bottom: 20px;
 }
 
 .icons-group {
@@ -177,3 +181,33 @@ body {
 	padding: 0px 15px;
 	text-align: center
 }
+
+.list-post-open {
+    border-radius: 50px 50px 50px 50px;
+    background-color: #f88465;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.list-post-open-letter {
+    color: #ffffff;
+    font-size: 30px;
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+.form-post-input {
+	width: 90% !important;
+}
+
+.form-post-label {
+	padding-bottom: 5px;
+	padding-top: 20px;
+}
+
+.form-post-save {
+	padding-bottom: 20px;
+	padding-top: 20px;
+}      

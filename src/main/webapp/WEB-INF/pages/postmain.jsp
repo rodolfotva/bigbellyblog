@@ -30,8 +30,8 @@
 			</div>
 		</div>
 		<div class="row pics-group">
-			<div ng-repeat="pic in postMain.pics" class="col-lg-3" data-toggle="modal" data-target="#picModalCenter">
-				<img ng-src="{{pic}}" class="post-pic" width="100%" height="20%" ng-click="showPhoto($index)">
+			<div ng-repeat="pic in postMain.pics" class="col-lg-3 post-pic-div" data-toggle="modal" data-target="#picModalCenter">
+				<img ng-src="{{pic}}" class="post-pic-img" width="100%" height="20%" ng-click="showPhoto($index)">
 			</div>
 		</div>
 		<div class="row">

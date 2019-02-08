@@ -42,3 +42,14 @@ angular.module('main').directive('listPage', function () {
 		}
     };
 });
+
+angular.module('main').directive('managerPage', function () {
+    return {
+        templateUrl: 'manager',
+		restrict: 'AE',
+		controller: 'mainController',
+		link: function($scope, $element, $attrs, ctrl){
+
+		}
+    };
+});
