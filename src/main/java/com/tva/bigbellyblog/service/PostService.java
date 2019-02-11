@@ -37,4 +37,6 @@ public interface PostService {
 
 	public Post findByPostId(String postId);
 
+	public boolean savePost(Post post);
+
 }

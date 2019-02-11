@@ -49,7 +49,9 @@ angular.module('main').directive('managerPage', function () {
 		restrict: 'AE',
 		controller: 'mainController',
 		link: function($scope, $element, $attrs, ctrl){
-
+		    $scope.savePostLink = function() {
+		    	$scope.savePost();
+		    };
 		}
     };
 });

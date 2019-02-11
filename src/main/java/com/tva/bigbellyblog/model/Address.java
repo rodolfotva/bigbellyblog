@@ -1,93 +1,97 @@
 package com.tva.bigbellyblog.model;
 
+import java.io.Serializable;
+
 import org.springframework.data.mongodb.core.mapping.Field;
 
-public class Address {
+public class Address implements Serializable {
 
-  @Field("number")
-  private String number;
-  @Field("street")
-  private String street;
-  @Field("nbh")
-  private String neighborhood;
-  @Field("city")
-  private String city;
-  @Field("province")
-  private String province;
-  @Field("open")
-  private String open;
-  @Field("coord")
-  private String coordinates;
+	private static final long serialVersionUID = 1L;
 
-  public Address() {
-    super();
-  }
+	@Field("number")
+	private String number;
+	@Field("street")
+	private String street;
+	@Field("nbh")
+	private String neighborhood;
+	@Field("city")
+	private String city;
+	@Field("province")
+	private String province;
+	@Field("open")
+	private String open;
+	@Field("coord")
+	private String coordinates;
 
-  public Address(String number, String street, String neighborhood, String city, String province, String open, String coordinates) {
-    super();
-    this.number = number;
-    this.street = street;
-    this.neighborhood = neighborhood;
-    this.city = city;
-    this.province = province;
-    this.open = open;
-    this.coordinates = coordinates;
-  }
+	public Address() {
+		super();
+	}
 
-  public String getNumber() {
-    return number;
-  }
+	public Address(String number, String street, String neighborhood, String city, String province, String open, String coordinates) {
+		super();
+		this.number = number;
+		this.street = street;
+		this.neighborhood = neighborhood;
+		this.city = city;
+		this.province = province;
+		this.open = open;
+		this.coordinates = coordinates;
+	}
 
-  public void setNumber(String number) {
-    this.number = number;
-  }
+	public String getNumber() {
+		return number;
+	}
 
-  public String getStreet() {
-    return street;
-  }
+	public void setNumber(String number) {
+		this.number = number;
+	}
 
-  public void setStreet(String street) {
-    this.street = street;
-  }
+	public String getStreet() {
+		return street;
+	}
 
-  public String getNeighborhood() {
-    return neighborhood;
-  }
+	public void setStreet(String street) {
+		this.street = street;
+	}
 
-  public void setNeighborhood(String neighborhood) {
-    this.neighborhood = neighborhood;
-  }
+	public String getNeighborhood() {
+		return neighborhood;
+	}
 
-  public String getCity() {
-    return city;
-  }
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
+	}
 
-  public void setCity(String city) {
-    this.city = city;
-  }
+	public String getCity() {
+		return city;
+	}
 
-  public String getProvince() {
-    return province;
-  }
+	public void setCity(String city) {
+		this.city = city;
+	}
 
-  public void setProvince(String province) {
-    this.province = province;
-  }
+	public String getProvince() {
+		return province;
+	}
 
-  public String getOpen() {
-    return open;
-  }
+	public void setProvince(String province) {
+		this.province = province;
+	}
 
-  public void setOpen(String open) {
-    this.open = open;
-  }
+	public String getOpen() {
+		return open;
+	}
 
-  public String getCoordinates() {
-    return coordinates;
-  }
+	public void setOpen(String open) {
+		this.open = open;
+	}
 
-  public void setCoordinates(String coordinates) {
-    this.coordinates = coordinates;
-  }
+	public String getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(String coordinates) {
+		this.coordinates = coordinates;
+	}
 
 }

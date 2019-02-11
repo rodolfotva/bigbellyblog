@@ -144,4 +144,14 @@ public class PostServiceImpl implements PostService {
 		return postRepo.findByPostId(postId);
 	}
 
+	@Override
+	public boolean savePost(Post post) {
+		try {
+			postRepo.save(post);
+			return false;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }

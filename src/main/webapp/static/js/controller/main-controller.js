@@ -1,6 +1,7 @@
 angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainController', ['$scope', 'mainService', function($scope, mainService) {
 	$scope.posts = {};
 	$scope.postMain;
+	$scope.postAdd;
 	$scope.stars = [];
 	$scope.menu = 'post';
 	$scope.sortListBy = 'title';
@@ -33,6 +34,17 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
     }
 	
 	//*************************
+    
+    $scope.savePost = function(){
+    	mainService.savePost($scope.postAdd).then(
+            function(response) {
+            	
+            },
+            function(errResponse){
+                console.log('Error while savePost Posts');
+            }
+        );
+    }
 
     $scope.addVisitor = function(postId, value){
     	mainService.addVisitor(postId, value).then(

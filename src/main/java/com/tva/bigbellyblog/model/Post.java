@@ -1,5 +1,6 @@
 package com.tva.bigbellyblog.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "post")
-public class Post {
+public class Post implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private ObjectId objectId;

@@ -6,6 +6,7 @@ angular.module('main').factory('mainService', ['$http', '$q', function($http, $q
     var REST_SERVICE_LIKE_POST_URI = 'http://localhost:8082/bigbellyblog/post/like';
     var REST_SERVICE_DISLIKE_POST_URI = 'http://localhost:8082/bigbellyblog/post/dislike';
     var REST_SERVICE_VISITOR_POST_URI = 'http://localhost:8082/bigbellyblog/post/addVisitor';
+    var REST_SERVICE_SAVE_POST_URI = 'http://localhost:8082/bigbellyblog/post/savePost';
  
     var factory = {
     	fetchHomePost:fetchHomePost,
@@ -14,10 +15,27 @@ angular.module('main').factory('mainService', ['$http', '$q', function($http, $q
     	fetchPagination:fetchPagination,
     	likePost:likePost,
     	dislikePost:dislikePost,
-    	addVisitor:addVisitor
+    	addVisitor:addVisitor,
+    	savePost:savePost
     };
  
     return factory;
+    
+    function savePost(post) {
+    	debugger;
+    	var deferred = $q.defer();
+        $http.post(REST_SERVICE_SAVE_POST_URI,post).then(
+            function (response) {
+                deferred.resolve(response);
+            },
+            function(errResponse){
+                console.log('Error while savePost posts');
+                console.log(errResponse);
+                deferred.reject(errResponse);
+            }
+        );
+        return deferred.promise;
+    }
 
     function addVisitor(postId, value) {
     	var deferred = $q.defer();

@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -131,6 +132,23 @@ public class PostController {
 
 		logger.info("Posts found: " + postLst.size());
 		return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+
+	}
+
+	@RequestMapping(value = "/savePost", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> savePost(@RequestBody Post post) {
+
+		logger.info("savePost ResponseEntity");
+
+		// Boolean saveOk = service.savePost(post);
+		Boolean saveOk = true;
+
+		if (saveOk) {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
+
+		logger.info("Posts save: " + saveOk);
+		return new ResponseEntity<Void>(HttpStatus.OK);
 
 	}
 
