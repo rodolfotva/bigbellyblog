@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tva.bigbellyblog.model.Header;
@@ -29,7 +29,7 @@ public class HeaderController {
     logger.info("Initializing Group Controller");
   }
 
-  @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<List<Header>> listAllHeaders() {
     logger.info("listAllGroups ResponseEntity");
     List<Header> groupLst = service.getAllHeaders();
