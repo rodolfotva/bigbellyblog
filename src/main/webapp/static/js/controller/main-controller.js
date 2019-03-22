@@ -1,7 +1,12 @@
 angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainController', ['$scope', 'mainService', function($scope, mainService) {
 	$scope.posts = {};
-	$scope.postMain;
-	$scope.postAdd;
+	$scope.postMain = {};
+	$scope.postAdd = {
+		pics: [],
+		address: []
+	};
+	$scope.picsDto = [];
+	$scope.addressDto = [];
 	$scope.stars = [];
 	$scope.menu = 'post';
 	$scope.sortListBy = 'title';
@@ -11,6 +16,8 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
 	$scope.dataPerPage = 10;
 	$scope.clickCC = 0;
 	$scope.showManagerBtn = false;
+	$scope.showErrorMsg = false;
+	$scope.showWarningMsg = false;
 	
 	//******** PHOTO ALBUM ****************
 
@@ -36,11 +43,17 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
 	//*************************
     
     $scope.savePost = function(){
+    	$scope.postAdd.pics = $scope.picsDto;
+    	$scope.postAdd.address = $scope.addressDto;
     	mainService.savePost($scope.postAdd).then(
             function(response) {
-            	
+            	document.body.scrollTop = 0;
+            	document.documentElement.scrollTop = 0;
+            	$scope.showWarningMsg = true;
+            	$scope.$apply; 
             },
             function(errResponse){
+            	$scope.showErrorMsg = true;
                 console.log('Error while savePost Posts');
             }
         );
@@ -159,7 +172,6 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
 		if($scope.clickCC === 4){
 			$scope.clickCC = 0;
 			$scope.showManagerBtn = true;
-			$scope.$apply();
 		}
 		$scope.clickCC++;
 	};

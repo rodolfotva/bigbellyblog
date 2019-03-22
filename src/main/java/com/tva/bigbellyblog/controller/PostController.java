@@ -1,10 +1,12 @@
 package com.tva.bigbellyblog.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
@@ -137,19 +139,26 @@ public class PostController {
   }
 
   @PostMapping(value = "/savePost", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Void> savePost(@RequestBody Post post) {
+  public ResponseEntity<Boolean> savePost(@RequestBody Post post) {
 
     logger.info("savePost ResponseEntity");
 
-    // Boolean saveOk = service.savePost(post);
+    post.setObjectId(new ObjectId());
+    post.setPostId(post.getObjectId().toString());
+    post.setLike(0);
+    post.setDislike(0);
+    post.setVisitors(0);
+    post.setPostDate(new Date());
+    post.setTitle(post.getRestaurantName());
+
     Boolean saveOk = true;
 
     if (saveOk) {
-      return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+      return new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT);
     }
 
     logger.info("Posts save: " + saveOk);
-    return new ResponseEntity<Void>(HttpStatus.OK);
+    return new ResponseEntity<Boolean>(saveOk, HttpStatus.OK);
 
   }
 

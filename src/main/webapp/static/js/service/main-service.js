@@ -22,7 +22,6 @@ angular.module('main').factory('mainService', ['$http', '$q', function($http, $q
     return factory;
     
     function savePost(post) {
-    	debugger;
     	var deferred = $q.defer();
         $http.post(REST_SERVICE_SAVE_POST_URI,post).then(
             function (response) {

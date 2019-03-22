@@ -98,7 +98,7 @@ public class DbTests {
       post.setLike(88);
       post.setDislike(1);
       post.setPostDate(today.getTime());
-      post.setRate(5);
+      post.setRate(5d);
       post.setVisitors(2500);
       post.setPics(Arrays.asList("123321", "1233322", "33212333"));
 
