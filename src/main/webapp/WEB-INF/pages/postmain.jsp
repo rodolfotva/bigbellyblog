@@ -45,18 +45,6 @@
 					<span>{{postMain.visitors}}</span>
 				</div>			
 				<div class="icons-unit">
-					<a href="#" ng-click="dislikePostDir(postMain, 1)" >
-						<span class="post-icons" data-toggle="tooltip" title="Unlike" onmouseenter="$(this).tooltip('show')"><i class="far fa-thumbs-down"></i></span>
-					</a>			
-					<span>{{postMain.dislike}}</span>
-				</div>
-				<div class="icons-unit">
-					<a href="#" ng-click="likePostDir(postMain, 1)" >
-						<span class="post-icons" data-toggle="tooltip" title="Like" onmouseenter="$(this).tooltip('show')"><i class="far fa-thumbs-up"></i></span>
-					</a>			
-					<span>{{postMain.like}}</span>
-				</div>
-				<div class="icons-unit">
 					<a href="{{postMain.facebook}}" target="_blank" >
 						<span class="post-icons" data-toggle="tooltip" title="Facebook" onmouseenter="$(this).tooltip('show')"><i class="fab fa-facebook-square"></i></span>
 					</a>
