@@ -35,6 +35,21 @@ public class Post implements Serializable {
   @Field("facebook")
   private String facebook;
 
+  @Field("number")
+  private String addressNumber;
+  @Field("street")
+  private String addressStreet;
+  @Field("nbh")
+  private String addressNeighbor;
+  @Field("city")
+  private String addressCity;
+  @Field("province")
+  private String addressProvince;
+  @Field("open")
+  private String addressOpen;
+  @Field("coord")
+  private String addressCoordinates;
+
   @Field("postDate")
   private Date postDate;
 
@@ -52,8 +67,6 @@ public class Post implements Serializable {
 
   @Field("comments")
   private List<Comment> comments;
-  @Field("address")
-  private List<Address> address;
 
   public Post() {
     super();
@@ -195,12 +208,60 @@ public class Post implements Serializable {
     this.comments = comments;
   }
 
-  public List<Address> getAddress() {
-    return address;
+  public String getAddressNumber() {
+    return addressNumber;
   }
 
-  public void setAddress(List<Address> address) {
-    this.address = address;
+  public void setAddressNumber(String addressNumber) {
+    this.addressNumber = addressNumber;
+  }
+
+  public String getAddressStreet() {
+    return addressStreet;
+  }
+
+  public void setAddressStreet(String addressStreet) {
+    this.addressStreet = addressStreet;
+  }
+
+  public String getAddressNeighbor() {
+    return addressNeighbor;
+  }
+
+  public void setAddressNeighbor(String addressNeighbor) {
+    this.addressNeighbor = addressNeighbor;
+  }
+
+  public String getAddressCity() {
+    return addressCity;
+  }
+
+  public void setAddressCity(String addressCity) {
+    this.addressCity = addressCity;
+  }
+
+  public String getAddressProvince() {
+    return addressProvince;
+  }
+
+  public void setAddressProvince(String addressProvince) {
+    this.addressProvince = addressProvince;
+  }
+
+  public String getAddressOpen() {
+    return addressOpen;
+  }
+
+  public void setAddressOpen(String addressOpen) {
+    this.addressOpen = addressOpen;
+  }
+
+  public String getAddressCoordinates() {
+    return addressCoordinates;
+  }
+
+  public void setAddressCoordinates(String addressCoordinates) {
+    this.addressCoordinates = addressCoordinates;
   }
 
 }

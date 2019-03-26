@@ -1,13 +1,16 @@
 package com.tva.bigbellyblog.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
@@ -37,16 +40,21 @@ public class PostController {
   }
 
   @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<List<Post>> listHomePost() {
+  public ResponseEntity<Map<String, Object>> listHomePost() {
     logger.info("listHomePost ResponseEntity");
+    Map<String, Object> values = new HashMap<String, Object>();
+
     List<Post> postLst = service.getLimitPosts(6);
+    values.put("postLst", postLst);
+    String locale = LocaleContextHolder.getLocale().getLanguage();
+    values.put("locale", locale);
 
     if (Objects.isNull(postLst) || postLst.isEmpty()) {
-      return new ResponseEntity<List<Post>>(HttpStatus.NO_CONTENT);
+      return new ResponseEntity<Map<String, Object>>(HttpStatus.NO_CONTENT);
     }
 
     logger.info("Posts found: " + postLst.size());
-    return new ResponseEntity<List<Post>>(postLst, HttpStatus.OK);
+    return new ResponseEntity<Map<String, Object>>(values, HttpStatus.OK);
 
   }
 
@@ -108,16 +116,22 @@ public class PostController {
   }
 
   @GetMapping(value = "/addVisitor/{value}/{postId}", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Post> addVisitor(@PathVariable("value") int value, @PathVariable("postId") String postId) {
+  public ResponseEntity<Map<String, Object>> addVisitor(@PathVariable("value") int value, @PathVariable("postId") String postId) {
     logger.info("addVisitor ResponseEntity");
+    Map<String, Object> values = new HashMap<String, Object>();
+
+    String locale = LocaleContextHolder.getLocale().getLanguage();
     Post post = service.changeVisitorNumber(postId, value);
 
+    values.put("locale", locale);
+    values.put("post", post);
+
     if (Objects.isNull(post)) {
-      return new ResponseEntity<Post>(HttpStatus.NO_CONTENT);
+      return new ResponseEntity<Map<String, Object>>(HttpStatus.NO_CONTENT);
     }
 
     logger.info("Visitor OK: " + post.getVisitors());
-    return new ResponseEntity<Post>(post, HttpStatus.OK);
+    return new ResponseEntity<Map<String, Object>>(values, HttpStatus.OK);
   }
 
   @GetMapping(value = "/pagination/{page}/{dataPerPage}/{sortBy}/{asc}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -151,7 +165,7 @@ public class PostController {
     post.setPostDate(new Date());
     post.setTitle(post.getRestaurantName());
 
-    Boolean saveOk = true;
+    Boolean saveOk = service.savePost(post);
 
     if (saveOk) {
       return new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT);

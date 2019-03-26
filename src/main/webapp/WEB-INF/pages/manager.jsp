@@ -75,26 +75,26 @@
 		    <div class="row">
 		    	<div class="col-lg-3">
 				    <label for="postNumber" class=form-post-label><spring:message code="page.manager.post.number" /></label>  
-				    <input type="text" id="postNumber" class="form-control form-post-input" ng-model="addressDto[0].number" required />
+				    <input type="text" id="postNumber" class="form-control form-post-input" ng-model="postAdd.addressNumber" required />
 		    	</div>
 		    	<div class="col-lg-5">
 				    <label for="postStreet" class=form-post-label><spring:message code="page.manager.post.street" /></label>  
-				    <input type="text" id="postStreet" class="form-control form-post-input" ng-model="addressDto[0].street" required />
+				    <input type="text" id="postStreet" class="form-control form-post-input" ng-model="postAdd.addressStreet" required />
 			    </div>
 			    <div class="col-lg-4">
 				    <label for="postNeighborhood" class=form-post-label><spring:message code="page.manager.post.neighborhood" /></label>  
-				    <input type="text" id="postNeighborhood" class="form-control form-post-input" ng-model="addressDto[0].neighborhood" required />
+				    <input type="text" id="postNeighborhood" class="form-control form-post-input" ng-model="postAdd.addressNeighbor" required />
 			    </div>
 		    </div>
 
 		    <div class="row">
 		    	<div class="col-lg-6">
 				    <label for="postCity" class=form-post-label><spring:message code="page.manager.post.city" /></label> 
-				    <input type="text" id="postCity" class="form-control form-post-input" ng-model="addressDto[0].city" required />
+				    <input type="text" id="postCity" class="form-control form-post-input" ng-model="postAdd.addressCity" required />
 		    	</div>
 		    	<div class="col-lg-6">
 				    <label for="postProvince" class=form-post-label><spring:message code="page.manager.post.province" /></label>  
-				    <input type="text" id="postProvince" class="form-control form-post-input" ng-model="addressDto[0].province" required />
+				    <input type="text" id="postProvince" class="form-control form-post-input" ng-model="postAdd.addressProvince" required />
 			    </div>
 		    </div>
 		    

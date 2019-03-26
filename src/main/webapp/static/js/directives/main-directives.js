@@ -39,6 +39,14 @@ angular.module('main').directive('listPage', function () {
 		    $scope.addVisitorDir = function(post, value) {
 		    	$scope.addVisitor(post.postId, value);
 		    };
+		    
+		    $scope.likePostDir = function(post, value) {
+		    	$scope.likePost(post.postId, value);
+		    };
+		    
+		    $scope.dislikePostDir = function(post, value) {
+		    	$scope.dislikePost(post.postId, value);
+		    };
 		}
     };
 });

@@ -1,9 +1,8 @@
 angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainController', ['$scope', 'mainService', function($scope, mainService) {
 	$scope.posts = {};
-	$scope.postMain = {};
+	$scope.postMain = null;
 	$scope.postAdd = {
-		pics: [],
-		address: []
+		pics: []
 	};
 	$scope.picsDto = [];
 	$scope.addressDto = [];
@@ -18,6 +17,7 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
 	$scope.showManagerBtn = false;
 	$scope.showErrorMsg = false;
 	$scope.showWarningMsg = false;
+	$scope.locale = 'en';
 	
 	//******** PHOTO ALBUM ****************
 
@@ -44,7 +44,6 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
     
     $scope.savePost = function(){
     	$scope.postAdd.pics = $scope.picsDto;
-    	$scope.postAdd.address = $scope.addressDto;
     	mainService.savePost($scope.postAdd).then(
             function(response) {
             	document.body.scrollTop = 0;
@@ -62,13 +61,16 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
     $scope.addVisitor = function(postId, value){
     	mainService.addVisitor(postId, value).then(
             function(response) {
-            	$scope.postMain = response.data;
+            	$scope.postMain = response.data['post'];
+            	$scope.locale = response.data['locale'];
             	$scope.$apply;
             },
             function(errResponse){
                 console.log('Error while addVisitor Posts');
             }
         );
+    	
+    	$('html, body').animate({scrollTop : 0},700);
     }
     
     $scope.addVisitor2 = function(postId, value){
@@ -107,8 +109,9 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
     $scope.fetchHomePost = function(){
     	mainService.fetchHomePost().then(
             function(response) {
-            	$scope.posts = response.data;
+            	$scope.posts = response.data['postLst'];
             	$scope.postMain = $scope.posts[0]; 
+            	$scope.locale = response.data['locale'];
             	$scope.$apply;
             	$scope.addVisitor2($scope.postMain.postId, 1);
             },
@@ -181,7 +184,12 @@ angular.module('main', ['ngSanitize', 'ngAnimate', 'ngTouch']).controller('mainC
     }
     
 	$scope.sortPostList = function() {
-		$scope.fetchPagination(1, $scope.dataPerPage, $scope.sortListBy, $scope.asc)
+		if($scope.selectedSort != null){
+			$scope.sortListBy = $scope.selectedSort;
+			$scope.$apply;
+		} else {
+			$scope.fetchPagination(1, $scope.dataPerPage, $scope.sortListBy, $scope.asc)
+		}
     };
 
 }]);

@@ -2,7 +2,7 @@
 <%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<div class="row" ng-if="postMain">
+<div class="row" ng-if="postMain != null">
 	<div class="col-lg-12 post-all" >
 		<div class="row">
 			<div class="col-lg-12 post-title">
@@ -10,8 +10,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-12 post-address" ng-if="postMain.address[0]">
-				<span>{{postMain.address[0].number}}, {{postMain.address[0].street}}, {{postMain.address[0].city}}-{{postMain.address[0].province}}</span>
+			<div class="col-lg-12 post-address" >
+				<span>{{postMain.addressNumber}}, {{postMain.addressStreet}}, {{postMain.addressCity}}-{{postMain.addressProvince}}</span>
 			</div>
 		</div>		
 		<div class="row">
@@ -26,7 +26,11 @@
 		</div>		
 		<div class="row">
 			<div class="col-lg-12 post-content" >
-				<span>{{postMain.contentEn}}</span>
+				<div ng-switch="locale">
+					<div ng-switch-when="en"><span>{{postMain.contentEn}}</span></div>
+					<div ng-switch-when="fr"><span>{{postMain.contentFr}}</span></div>
+					<div ng-switch-when="pt"><span>{{postMain.contentPt}}</span></div>
+				</div>
 			</div>
 		</div>
 		<div class="row pics-group">
@@ -67,6 +71,11 @@
 						<span class="post-icons" style="color: Black;" ><i class="fas fa-laptop"></i></span>
 					</a>
 				</div>
+				<div class="icons-unit">
+					<a href="{{postMain.addressOpen}}" target="_blank" data-toggle="tooltip" title="Maps" onmouseenter="$(this).tooltip('show')">
+						<span class="post-icons" style="color: #3c763d;" ><i class="fas fa-map-marked-alt"></i></span>
+					</a>
+				</div>				
 			</div>
 		</div>
 	</div>

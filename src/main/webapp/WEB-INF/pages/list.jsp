@@ -17,7 +17,7 @@
 			<spring:message code="page2.sortBy" />&nbsp;
 			<select ng-model="selectedSort" ng-change="sortPostList()">
 				<option value="title"><spring:message code="default.name" /></option>
-				<option value="city"><spring:message code="default.city" /></option>
+				<option value="addressCity"><spring:message code="default.city" /></option>
 				<option value="postDate"><spring:message code="default.postdate" /></option>
 			</select>
 		</div>
@@ -42,7 +42,7 @@
 							</div>
 						</th>
 						<td>{{post.title}}</td>
-						<td>{{post.address[0].city}}</td>
+						<td>{{post.addressCity}}</td>
 						<td>{{post.postDate | date}}</td>
 					</tr>
 				</tbody>		

@@ -51,9 +51,9 @@
 							<li ng-if="showManagerBtn" ng-class="{active : menu == 'manager'}"><a href="#" ng-click="menuChange('manager')"><spring:message code="page.manager.title" /></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-			              <li><a href="/en/" title="English"><img src="<c:url value="/static/images/usa.png" />" height="16" width="16" /></a></li>
-			              <li><a href="/fr/" title="Français"><img src="<c:url value="/static/images/france.png" />" height="16" width="16" /></a></li>
-			              <li><a href="/pt/" title="Portugues"><img src="<c:url value="/static/images/brazil.png" />" height="16" width="16" /></a></li>
+			              <li><a href="/bigbellyblog/en/" title="English"><img src="<c:url value="/static/images/usa.png" />" height="16" width="16" /></a></li>
+			              <li><a href="/bigbellyblog/fr/" title="Français"><img src="<c:url value="/static/images/france.png" />" height="16" width="16" /></a></li>
+			              <li><a href="/bigbellyblog/pt/" title="Portugues"><img src="<c:url value="/static/images/brazil.png" />" height="16" width="16" /></a></li>
             			</ul>
 					</div>
 				</div>
