@@ -34,6 +34,8 @@ public class Post implements Serializable {
   private String tripadvisor;
   @Field("facebook")
   private String facebook;
+  @Field("foodtype")
+  private String foodType;
 
   @Field("number")
   private String addressNumber;
@@ -262,6 +264,14 @@ public class Post implements Serializable {
 
   public void setAddressCoordinates(String addressCoordinates) {
     this.addressCoordinates = addressCoordinates;
+  }
+
+  public String getFoodType() {
+    return foodType;
+  }
+
+  public void setFoodType(String foodType) {
+    this.foodType = foodType;
   }
 
 }
