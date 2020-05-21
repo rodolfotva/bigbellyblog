@@ -24,13 +24,13 @@ public class ApplicationConfig {
 
   @Bean
   public MongoDbFactory mongoDbFactory() throws Exception {
-    String pass = "Xrt2Dr913";
-    String user = "rodolfotva";
+    String pass = "";
+    String user = "";
 
     List<ServerAddress> saList = new ArrayList<>();
-    saList.add(new ServerAddress("cluster0-shard-00-00-fvnbi.mongodb.net", 27017));
-    saList.add(new ServerAddress("cluster0-shard-00-01-fvnbi.mongodb.net", 27017));
-    saList.add(new ServerAddress("cluster0-shard-00-02-fvnbi.mongodb.net", 27017));
+    saList.add(new ServerAddress("", 12345));
+    saList.add(new ServerAddress("", 12345));
+    saList.add(new ServerAddress("", 12345));
 
     char[] pwd = pass.toCharArray();
 
